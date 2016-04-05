@@ -3,7 +3,8 @@ from sticks import *
 
 class SticksTest(unittest.TestCase):
 
-    player_1 = 'Kat'
+    test_dict = {key: [1, 2, 3] for key in range(1, 101)}
+
 
     def test_adjust_rem_sticks(self):
         guess = 2
@@ -29,6 +30,17 @@ class SticksTest(unittest.TestCase):
         self.assertTrue(is_valid_number(11, 100, 10))
         self.assertFalse(is_valid_number('abc', 3))
 
+    def test_get_version(self):
+        output = get_version()
+        self.assertTrue(output == '1' or output == '2')
+
+    def test_make_a_guess(self):
+        guess = make_a_guess(5, self.test_dict)
+        self.assertTrue(guess in self.test_dict[5])
+
+    def test_add_guess_to_hat(self):
+        new_dict = add_guess_to_hat(4, 5, self.test_dict)
+        self.assertEqual(new_dict[5], [1, 2, 3, 4])
 
 if __name__ == '__main__':
     unittest.main()
