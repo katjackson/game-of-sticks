@@ -119,8 +119,6 @@ def play_version_2(starting_dict_of_hats):
     rem_sticks = get_rem_sticks_from_input()
     working_dict_of_hats = copy.deepcopy(starting_dict_of_hats)
 
-    print_check_dict(starting_dict_of_hats)
-    print_check_dict(working_dict_of_hats)
 
     clear()
     while rem_sticks > 0:
@@ -148,8 +146,8 @@ def play_version_2(starting_dict_of_hats):
             return starting_dict_of_hats
             break
 
-        print_check_dict(starting_dict_of_hats)
-        print_check_dict(working_dict_of_hats)
+
+
 
 starting_dict_of_hats = {key: [1, 2, 3] for key in range(1, 101)}
 starting_dict_of_hats[1] = [1]
@@ -169,7 +167,6 @@ def main(starting_dict_of_hats):
     if version == '2':
         starting_dict_of_hats = play_version_2(starting_dict_of_hats)
 
-    print_check_dict(starting_dict_of_hats)
 
     if input("Do you want to play again? y/N ").lower() == 'y':
         return main(starting_dict_of_hats)
